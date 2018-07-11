@@ -1,0 +1,29 @@
+#
+# Copyright (C) 2018 The TwrpBuilder Open-Source Project
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+
+/boot		emmc	/dev/block/platform/13540000.dwmmc0/by-name/BOOT
+/cache		ext4	/dev/block/platform/13540000.dwmmc0/by-name/CACHE
+/data		ext4	/dev/block/platform/13540000.dwmmc0/by-name/USERDATA	length=-20480
+/recovery	emmc	/dev/block/platform/13540000.dwmmc0/by-name/RECOVERY	
+/system		ext4	/dev/block/platform/13540000.dwmmc0/by-name/SYSTEM	
+/efs		emmc	/dev/block/platform/13540000.dwmmc0/by-name/EFS flags=display="EFS";backup=1
+/cpefs		ext4	/dev/block/platform/13540000.dwmmc0/by-name/CPEFS	flags=backup=1;display="CPEFS";subpartitionof=/efs
+/m9kefs1	emmc	/dev/block/platform/13540000.dwmmc0/by-name/m9kefs1	flags=backup=1;subpartitionof=/efs
+/m9kefs2	emmc	/dev/block/platform/13540000.dwmmc0/by-name/m9kefs2	flags=backup=1;subpartitionof=/efs
+/m9kefs3	emmc	/dev/block/platform/13540000.dwmmc0/by-name/m9kefs3	flags=backup=1;subpartitionof=/efs	
+/radio		emmc	/dev/block/platform/13540000.dwmmc0/by-name/RADIO flags=display="Modem";backup=1
+/external_sd	vfat	/dev/block/mmcblk1p1 /dev/block/mmcblk1	flags=display="Micro SDcard";storage;wipeingui;removable
+/usb-otg vfat /dev/block/sda1 /dev/block/sda flags=display="USB-OTG";storage;wipeingui;removable
