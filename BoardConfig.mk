@@ -31,16 +31,9 @@ TARGET_CPU_VARIANT := cortex-a53
 TARGET_CPU_CORTEX_A53 := true
 
 # Kernel
-TARGET_KERNEL_ARCH := arm64
-TARGET_KERNEL_HEADER_ARCH := arm
-TARGET_KERNEL_CONFIG := exynos7870-a6lte_defconfig
-TARGET_KERNEL_SOURCE := kernel/samsung/a6ltexx
-
-# Image
-BOARD_KERNEL_IMAGE_NAME := Image
-BOARD_KERNEL_SEPARATED_DT := true
+TARGET_PREBUILT_KERNEL := device/samsung/a6ltexx/kernel
+BOARD_KERNEL_CMDLINE := androidboot.selinux=permissive
 BOARD_KERNEL_BASE := 0x10000000
-BOARD_KERNEL_PAGESIZE := 2048
 BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x01000000 --tags_offset 0x00000100 --dt device/samsung/a6ltexx/dt.img
 
 # File systems
