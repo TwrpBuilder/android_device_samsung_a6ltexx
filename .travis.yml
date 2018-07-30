@@ -11,6 +11,7 @@ before_script:
 script:
   - cd $HOME/twrp/ && git clone https://github.com/TwrpBuilder/android_device_samsung_a6ltexx.git device/samsung/a6ltexx
   - rm -rf bootable/recovery && git clone https://github.com/omnirom/android_bootable_recovery.git bootable/recovery --depth=1
+  - rm -rf prebuilts/sdk && git clone https://android.googlesource.com/platform/prebuilts/sdk prebuilts/sdk -b android-8.1.0_r40 --depth=1
   - |
     docker run --rm -i -e USER_ID=$(id -u) -e GROUP_ID=$(id -g) -v "$(pwd):/home/twrp/:rw,z" yshalsager/lineageos:14.1 bash << EOF
     cd /home/twrp/
