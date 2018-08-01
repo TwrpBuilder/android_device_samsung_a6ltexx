@@ -1,0 +1,28 @@
+on init
+    chmod 0664 /dev/ion
+    chown system system /dev/ion
+
+service keystore /sbin/keystore /data/misc/keystore
+    user root
+    group root drmrpc readproc
+    disabled
+    seclabel u:r:recovery:s0
+
+service gatekeeper-1-0 /sbin/android.hardware.gatekeeper@1.0-service
+    user root
+    group root
+    disabled
+    seclabel u:r:recovery:s0
+
+service keymaster-3-0 /sbin/android.hardware.keymaster@3.0-service
+    user root
+    group root
+    disabled
+    seclabel u:r:recovery:s0
+
+on property:ro.crypto.state=encrypted
+    start keymaster-3-0
+    start gatekeeper-1-0
+    start keystore
+    
+    
